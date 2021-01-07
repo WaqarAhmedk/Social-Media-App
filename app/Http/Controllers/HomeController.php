@@ -25,6 +25,6 @@ class HomeController extends Controller
     public function index()
     {
         $posts=auth()->user()->posts()->paginate(2);
-        return view('dashboard')->with(compact('posts'));
+        return view('profile.dashboard')->with(compact('posts'));
     }
 }

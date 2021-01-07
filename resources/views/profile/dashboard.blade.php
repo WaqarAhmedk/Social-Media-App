@@ -6,7 +6,7 @@
             <div class="col-md-8 pl-3">
                 <div class="align-content-end d-flex float-right">
                     <img src="/storage/{{Auth()->user()->avatar}}" class="rounded-circle" height="50px" width="50px">
-                    <button><a href="" class="btn btn-primary m-2">Update Profile</a></button>
+                    <button><a href="{{route('updateform',auth()->user()->id)}}" class="btn btn-primary m-2">Update Profile</a></button>
 
 
                 </div>
