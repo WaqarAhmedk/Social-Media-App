@@ -67,6 +67,11 @@
                             <div class="col-md-6">
                                 <input  type="file" class="form-control" name="avatar">
                             </div>
+                            @error('avatar')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
 
                         <div class="form-group row mb-0">

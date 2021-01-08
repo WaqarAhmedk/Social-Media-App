@@ -11,7 +11,7 @@ class PostsController extends Controller
 {
     public function index(){
         $posts=Post::orderby('created_at' ,'desc')->paginate(5);
-        $users=User::all();
+        $users=User::inRandomOrder()->limit(5)->get();
         return view('posts.index')->with(compact('posts'))->with(compact('users'));
     }
     public function create(postrequest $request){

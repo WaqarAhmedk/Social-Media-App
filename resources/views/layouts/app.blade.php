@@ -40,11 +40,12 @@
                     <li>
                         <a class="p-3" href="{{route('dashboard')}}">Dashboard</a>
                     </li>
-                @endauth
-
                     <li>
                         <a class="p-3" href="{{route('posts_index')}}">Posts</a>
                     </li>
+                @endauth
+
+
 
             </ul>
 

@@ -64,16 +64,24 @@
             @endforeach
             {{$posts->links()}}
         </div>
-        <div class="w-48 bg-grey p-6 rounded-lg" >
+        <div class="w-72 bg-grey p-6 rounded-lg" >
             <h1>Follow These Users</h1>
 
             @foreach($users as $user)
                 <div class="d-flex pt-3">
-                    <img src="/storage/{{$user->avatar}}" height="" width="50px" class="rounded-circle">
-                    <span class="ml-3">{{$user->name}}</span>
-                    <a href="#" class="btn btn-primary ml-3 w-75 h-25">follow</a>
+                    <div>
+                        <img src="/storage/{{$user->avatar}}" height="" width="50px" class="rounded-circle">
+                    </div>
+                   <div>
+                       <span class="ml-3">{{$user->name}}</span>
+                       <div>
+                           <a href="#" class="btn btn-primary ml-3 w-75 h-25">follow</a>
+                       </div>
+                   </div>
+
                 </div>
             @endforeach
+            <hr>
         </div>
     </div>
 
