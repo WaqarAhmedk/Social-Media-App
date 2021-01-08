@@ -63,7 +63,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Select Avatar</label>
+                            <label for="avatar" class="col-md-4 col-form-label text-md-right">Select Avatar</label>
                             <div class="col-md-6">
                                 <input  type="file" class="form-control" name="avatar">
                             </div>

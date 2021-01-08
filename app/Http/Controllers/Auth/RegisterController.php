@@ -66,7 +66,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if ( in_array('avatar',$data) ){
+
+        if ( array_key_exists('avatar',$data) ){
             $name=$data['avatar']->getClientOriginalName();
             $avatar=$data['email'].$name;
             $path=$data['avatar']->storeAs('avatars',$avatar,'public');
