@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts=auth()->user()->posts()->paginate(2);
+        $posts=auth()->user()->posts()->orderBy('created_at' , 'desc')->paginate(2);
         return view('profile.dashboard')->with(compact('posts'));
     }
 }

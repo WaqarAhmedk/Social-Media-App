@@ -20,21 +20,33 @@
                     <div class="card-body">
 
                         @foreach($posts as $post)
-                            <div class="pb-4">
-                                <strong>{{auth()->user()->name}}</strong>
-                                <span>{{$post->caption}}</span>
-                                <img src="/storage/{{$post->image}}" class="rounded" height="40px" width="500px" >
-                                <div class="justify-content-between pt-3 pl-4">
-                                    <span>3</span>
-                                    <span class="far fa-thumbs-up"></span>
-                                    <span class="pl-3">3</span>
-                                    <span class="far fa-thumbs-down"></span>
-                                    <form class="hidden" method="post" action="">
-                                        <input type="submit">
-                                    </form>
+                            <div class=" mt-3 border border-balck rounded ml-4 pt-2">
+                                <div class="d-inl pl-2">
+                                    <img src="storage/{{$post->user->avatar}}" class="rounded-circle d-inline" height="50px" width="50px">
+                                    <strong class="d-inline"><a href="{{route('dashboard')}}">{{$post->user->name}}</a></strong>
+                                    posted
+                                    <span>{{$post->created_at->diffForHumans()}}</span>
                                 </div>
-                            </div>
 
+                                <div class="pl-5 pt-2">
+                                    @if($post->image)
+                                        <p>{{$post->caption}}</p>
+                                        <img src="/storage/{{$post->image}}" class="rounded" width="500px">
+                                    @else
+                                        <p>{{$post->caption}}</p>
+                                    @endif
+                                </div>
+                                <div class="justify-content-between pt-3 pl-4">
+                                    <span>{{$post->likes()->count()}}</span>
+                                    @if($post->likedBy(auth()->user()))
+                                        <a href="{{route('unlike',$post->id)}}" class="text-primary"><span class="far fa-thumbs-up fa-2x"/></a>
+                                    @else
+                                        <a href="{{route('like',$post->id)}}"  class="text-black-90"><span class="far fa-thumbs-up fa-2x"/></a>
+                                    @endif
+
+                                </div>
+
+                            </div>
                         @endforeach
                         {{$posts->links()}}
                     </div>
